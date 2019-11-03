@@ -198,6 +198,18 @@
     <Compile Include="Migrations\201911031455031_AddAnnoutationToCustomerTable.Designer.cs">
       <DependentUpon>201911031455031_AddAnnoutationToCustomerTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201911031523201_EditInCustomerTable.cs" />
+    <Compile Include="Migrations\201911031523201_EditInCustomerTable.Designer.cs">
+      <DependentUpon>201911031523201_EditInCustomerTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911031527064_AddColumnInCustomerTable.cs" />
+    <Compile Include="Migrations\201911031527064_AddColumnInCustomerTable.Designer.cs">
+      <DependentUpon>201911031527064_AddColumnInCustomerTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911031532131_Populate2InMembership.cs" />
+    <Compile Include="Migrations\201911031532131_Populate2InMembership.Designer.cs">
+      <DependentUpon>201911031532131_Populate2InMembership.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -344,6 +356,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201911031455031_AddAnnoutationToCustomerTable.resx">
       <DependentUpon>201911031455031_AddAnnoutationToCustomerTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911031523201_EditInCustomerTable.resx">
+      <DependentUpon>201911031523201_EditInCustomerTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911031527064_AddColumnInCustomerTable.resx">
+      <DependentUpon>201911031527064_AddColumnInCustomerTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911031532131_Populate2InMembership.resx">
+      <DependentUpon>201911031532131_Populate2InMembership.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -10,6 +10,6 @@ namespace Vidly.Models
         public string CustomerName { get; set; }
         public bool IsSubscribedToNewsLatter { get; set; }
         public MemberShipType MemberShipType { get; set; }
-        public int MemberShipId{ get; set; }
+        public int MemberShipTypeId { get; set; }
     }
 }
