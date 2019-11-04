@@ -4,4 +4,15 @@
 }
 
 <h2>@Model.CustomerName</h2>
+<ul class="nav navbar-nav mr-auto">
+    <li class="nav-item">@Model.MemberShipType.Name</li>
+    <li class="nav-item">
+        
+            @if (Model.BirthDate != null)
+            {
+               @Model.BirthDate.Value.ToShortDateString();
+            }
+        
+    </li>
+</ul>
 

@@ -218,6 +218,10 @@
     <Compile Include="Migrations\201911042005375_EditInMemberShipTable.Designer.cs">
       <DependentUpon>201911042005375_EditInMemberShipTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201911042036517_AddColumnToCustomerTable.cs" />
+    <Compile Include="Migrations\201911042036517_AddColumnToCustomerTable.Designer.cs">
+      <DependentUpon>201911042036517_AddColumnToCustomerTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -379,6 +383,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201911042005375_EditInMemberShipTable.resx">
       <DependentUpon>201911042005375_EditInMemberShipTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911042036517_AddColumnToCustomerTable.resx">
+      <DependentUpon>201911042036517_AddColumnToCustomerTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
