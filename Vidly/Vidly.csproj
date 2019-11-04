@@ -222,9 +222,30 @@
     <Compile Include="Migrations\201911042036517_AddColumnToCustomerTable.Designer.cs">
       <DependentUpon>201911042036517_AddColumnToCustomerTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201911042103334_AddMovieTable.cs" />
+    <Compile Include="Migrations\201911042103334_AddMovieTable.Designer.cs">
+      <DependentUpon>201911042103334_AddMovieTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911042107160_AddRelationToMoviesTable.cs" />
+    <Compile Include="Migrations\201911042107160_AddRelationToMoviesTable.Designer.cs">
+      <DependentUpon>201911042107160_AddRelationToMoviesTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911042108470_PopulateToGenraTable.cs" />
+    <Compile Include="Migrations\201911042108470_PopulateToGenraTable.Designer.cs">
+      <DependentUpon>201911042108470_PopulateToGenraTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911042113290_PopulateMoviesTable.cs" />
+    <Compile Include="Migrations\201911042113290_PopulateMoviesTable.Designer.cs">
+      <DependentUpon>201911042113290_PopulateMoviesTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911042130564_AddColumsToMoveisTable.cs" />
+    <Compile Include="Migrations\201911042130564_AddColumsToMoveisTable.Designer.cs">
+      <DependentUpon>201911042130564_AddColumsToMoveisTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MemberShipType.cs" />
@@ -386,6 +407,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201911042036517_AddColumnToCustomerTable.resx">
       <DependentUpon>201911042036517_AddColumnToCustomerTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911042103334_AddMovieTable.resx">
+      <DependentUpon>201911042103334_AddMovieTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911042107160_AddRelationToMoviesTable.resx">
+      <DependentUpon>201911042107160_AddRelationToMoviesTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911042108470_PopulateToGenraTable.resx">
+      <DependentUpon>201911042108470_PopulateToGenraTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911042113290_PopulateMoviesTable.resx">
+      <DependentUpon>201911042113290_PopulateMoviesTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911042130564_AddColumsToMoveisTable.resx">
+      <DependentUpon>201911042130564_AddColumsToMoveisTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
