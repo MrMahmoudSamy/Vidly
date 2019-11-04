@@ -15,8 +15,8 @@
         <table class="table table-hover">
             <thead>
                 <tr>
-                    <th scope="col">Customer</th>
-                    <th scope="col">Discount Rate</th>
+                    <th scope="row">Customer</th>
+                    <th scope="row">Membership Type</th>
                 </tr>
             </thead>
             <tbody>
@@ -26,7 +26,7 @@
                         <td>
                             @Html.ActionLink(customer.CustomerName, "Details", "Customers", new { id = customer.CustomerId }, new { @class = "navbar-brand" })
                         </td>
-                        <td>@customer.MemberShipType.DiscountRate%</td>
+                        <td>@customer.MemberShipType.Name</td>
                     </tr>
                 }
             </tbody>

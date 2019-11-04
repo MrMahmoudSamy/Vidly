@@ -210,6 +210,14 @@
     <Compile Include="Migrations\201911031532131_Populate2InMembership.Designer.cs">
       <DependentUpon>201911031532131_Populate2InMembership.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201911042000047_AddColumnToMemberShipTypeTable.cs" />
+    <Compile Include="Migrations\201911042000047_AddColumnToMemberShipTypeTable.Designer.cs">
+      <DependentUpon>201911042000047_AddColumnToMemberShipTypeTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201911042005375_EditInMemberShipTable.cs" />
+    <Compile Include="Migrations\201911042005375_EditInMemberShipTable.Designer.cs">
+      <DependentUpon>201911042005375_EditInMemberShipTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -365,6 +373,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201911031532131_Populate2InMembership.resx">
       <DependentUpon>201911031532131_Populate2InMembership.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911042000047_AddColumnToMemberShipTypeTable.resx">
+      <DependentUpon>201911042000047_AddColumnToMemberShipTypeTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911042005375_EditInMemberShipTable.resx">
+      <DependentUpon>201911042005375_EditInMemberShipTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
