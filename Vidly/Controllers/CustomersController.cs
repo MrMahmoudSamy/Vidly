@@ -44,9 +44,20 @@ namespace Vidly.Controllers
             };
             return View(viewmodel);
         }
-        public ActionResult Create(Customer Customers)
+        public ActionResult Save(Customer Customers)
         {
-            _context.Customers.Add(Customers);
+            if(Customers.CustomerId==0)
+            {
+                _context.Customers.Add(Customers);
+            }
+            else
+            {
+                var CustomerInDb = _context.Customers.Single(c => c.CustomerId == Customers.CustomerId);
+                CustomerInDb.CustomerName = Customers.CustomerName;
+                CustomerInDb.BirthDate = Customers.BirthDate;
+                CustomerInDb.IsSubscribedToNewsLatter = Customers.IsSubscribedToNewsLatter;
+                CustomerInDb.MemberShipTypeId = Customers.MemberShipTypeId;
+            }
             _context.SaveChanges();
             return RedirectToAction("Index", "Customers");
         }
