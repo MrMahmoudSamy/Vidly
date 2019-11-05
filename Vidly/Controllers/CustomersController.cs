@@ -46,7 +46,22 @@ namespace Vidly.Controllers
         }
         public ActionResult Create(Customer Customers)
         {
-            return View();
+            _context.Customers.Add(Customers);
+            _context.SaveChanges();
+            return RedirectToAction("Index", "Customers");
+        }
+
+        public ActionResult Edit(int Id)
+        {
+            var customer = _context.Customers.SingleOrDefault(c => c.CustomerId == Id);
+            if (customer == null)
+                return HttpNotFound();
+            var viewmodel = new CreateNewCustomer
+            {
+                Customers = customer,
+                MemberShipTypes = _context.MemberShipTypes.ToList()
+            };
+            return View("New",viewmodel);
         }
        
     }
