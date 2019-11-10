@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Web.Mvc;
@@ -34,7 +35,15 @@ namespace Vidly.Controllers
             };
             return View(viewModels);
         }
-
+        public ActionResult New()
+        {
+            var Genre = _context.Genres.ToList();
+            var viewmodel = new MoviesViewModels
+            {
+                Genre = Genre
+            };
+            return View(viewmodel);
+        }
         public ActionResult Index()
         {
             var Movie = _context.Movie.Include(m=>m.Genre).ToList();
@@ -52,6 +61,37 @@ namespace Vidly.Controllers
             {
                 return View(movie);
             }
+        }
+        [HttpPost]
+        public ActionResult Save(Movies movie)
+        {
+            if(movie.Id==0)
+            {
+                movie.DateAdded = DateTime.Now;
+                _context.Movie.Add(movie);
+            }
+            else
+            {
+                var MovieInDb = _context.Movie.Single(m => m.Id == movie.Id);
+                MovieInDb.Name = movie.Name;
+                MovieInDb.ReleaseDate = movie.ReleaseDate;
+                MovieInDb.NumberInStock = movie.NumberInStock;
+                MovieInDb.GenreId = movie.GenreId;
+            }
+            _context.SaveChanges();
+            return RedirectToAction("Index","Movies");
+        }
+        public ActionResult Edit(int id)
+        {
+            var Movies = _context.Movie.SingleOrDefault(m => m.Id == id);
+            if (Movies == null)
+               return HttpNotFound();
+            var viewmodel = new MoviesViewModels
+            {
+                Movie = Movies,
+                Genre = _context.Genres.ToList()
+            };
+            return View("New",viewmodel);
         }
        
     }

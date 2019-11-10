@@ -3,7 +3,12 @@
     ViewBag.Title = "Index";
 }
 
+
+
 <h2>Movies</h2>
+
+@Html.ActionLink("New Movies", "New", "Movies", new { @class = "btn btn-primary" })
+
 @{ 
     if(!Model.Any())
     {
@@ -23,7 +28,7 @@
                 {
                     <tr>
                         <td>
-                            @Html.ActionLink(movie.Name, "Details", "Movies", new { id = movie.Id }, new { @class = "navbar-brand" })
+                            @Html.ActionLink(movie.Name, "Edit", "Movies", new { id = movie.Id }, new { @class = "navbar-brand" })
                         </td>
                         <td>@movie.Genre.GenreName</td>
                     </tr>
