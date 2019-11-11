@@ -242,6 +242,10 @@
     <Compile Include="Migrations\201911042130564_AddColumsToMoveisTable.Designer.cs">
       <DependentUpon>201911042130564_AddColumsToMoveisTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201911111205061_AddAnotationToMoviesTable.cs" />
+    <Compile Include="Migrations\201911111205061_AddAnotationToMoviesTable.Designer.cs">
+      <DependentUpon>201911111205061_AddAnotationToMoviesTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -426,6 +430,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201911042130564_AddColumsToMoveisTable.resx">
       <DependentUpon>201911042130564_AddColumsToMoveisTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911111205061_AddAnotationToMoviesTable.resx">
+      <DependentUpon>201911111205061_AddAnotationToMoviesTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
