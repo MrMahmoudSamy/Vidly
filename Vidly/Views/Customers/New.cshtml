@@ -15,6 +15,7 @@
     <div class="form-group">
         @Html.LabelFor(m => m.Customers.BirthDate)
         @Html.TextBoxFor(m => m.Customers.BirthDate,"{0:d MMM yyyy}", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m=>m.Customers.BirthDate)
     </div>
     <div class="form-check">
         <label class="form-check-label">
