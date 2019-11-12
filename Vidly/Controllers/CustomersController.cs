@@ -46,6 +46,15 @@ namespace Vidly.Controllers
         }
         public ActionResult Save(Customer Customers)
         {
+            if(!ModelState.IsValid)
+            {
+                var viewmodel = new CreateNewCustomer
+                {
+                    Customers = Customers,
+                    MemberShipTypes = _context.MemberShipTypes.ToList()
+                };
+                return View("New", viewmodel);
+            }
             if(Customers.CustomerId==0)
             {
                 _context.Customers.Add(Customers);
