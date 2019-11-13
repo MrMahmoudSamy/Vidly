@@ -28,6 +28,7 @@ namespace Vidly.Controllers.Api
             var customer = _context.Customers.SingleOrDefault(c => c.CustomerId == id);
             if (customer == null)
                 throw new HttpResponseException(HttpStatusCode.NotFound);
+
             return customer;
         }
         //Post/api/customers
@@ -36,6 +37,7 @@ namespace Vidly.Controllers.Api
         {
             if (!ModelState.IsValid)
                 throw new HttpResponseException(HttpStatusCode.BadRequest);
+
             _context.Customers.Add(customer);
             _context.SaveChanges();
             return customer;
@@ -46,9 +48,11 @@ namespace Vidly.Controllers.Api
         {
             if (!ModelState.IsValid)
                 throw new HttpResponseException(HttpStatusCode.BadRequest);
+
             var customerInDb=_context.Customers.SingleOrDefault(c => c.CustomerId == id);
             if (customerInDb == null)
                 throw new HttpResponseException(HttpStatusCode.NotFound);
+
             customerInDb.CustomerName = customer.CustomerName;
             customerInDb.BirthDate = customer.BirthDate;
             customerInDb.IsSubscribedToNewsLatter = customer.IsSubscribedToNewsLatter;
