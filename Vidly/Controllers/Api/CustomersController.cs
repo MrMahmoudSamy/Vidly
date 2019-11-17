@@ -1,9 +1,11 @@
-﻿using System;
+﻿using AutoMapper;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using Vidly.Dtos;
 using Vidly.Models;
 
 namespace Vidly.Controllers.Api
@@ -17,34 +19,37 @@ namespace Vidly.Controllers.Api
         }
         //Get/api/customer
         [HttpGet]
-        public IEnumerable<Customer> GetCustomers()
+        public IEnumerable<CustomerDto> GetCustomers()
         {
-            return _context.Customers.ToList();
+            return _context.Customers.ToList().Select(Mapper.Map<Customer,CustomerDto>);
         }
         //Get/api/customer/1
         [HttpGet]
-        public Customer GetCustomer(int id)
+        public CustomerDto GetCustomer(int id)
         {
             var customer = _context.Customers.SingleOrDefault(c => c.CustomerId == id);
             if (customer == null)
                 throw new HttpResponseException(HttpStatusCode.NotFound);
 
-            return customer;
+            return Mapper.Map<Customer,CustomerDto>(customer);
         }
         //Post/api/customers
         [HttpPost]
-        public Customer CreateCustomer(Customer customer)
+        public CustomerDto CreateCustomer(CustomerDto customerDto)
         {
             if (!ModelState.IsValid)
                 throw new HttpResponseException(HttpStatusCode.BadRequest);
 
+            var customer = Mapper.Map<CustomerDto, Customer>(customerDto);
+
             _context.Customers.Add(customer);
             _context.SaveChanges();
-            return customer;
+            customerDto.CustomerId = customer.CustomerId;
+            return customerDto;
         }
         //Put/api/customer/1
         [HttpPut]
-        public void UpdateCustomer (int id ,Customer customer)
+        public void UpdateCustomer (int id ,CustomerDto customerDto)
         {
             if (!ModelState.IsValid)
                 throw new HttpResponseException(HttpStatusCode.BadRequest);
@@ -53,10 +58,11 @@ namespace Vidly.Controllers.Api
             if (customerInDb == null)
                 throw new HttpResponseException(HttpStatusCode.NotFound);
 
-            customerInDb.CustomerName = customer.CustomerName;
-            customerInDb.BirthDate = customer.BirthDate;
-            customerInDb.IsSubscribedToNewsLatter = customer.IsSubscribedToNewsLatter;
-            customerInDb.MemberShipTypeId = customer.MemberShipTypeId;
+            Mapper.Map(customerDto,customerInDb);
+            //customerInDb.CustomerName = customer.CustomerName;
+            //customerInDb.BirthDate = customer.BirthDate;
+            //customerInDb.IsSubscribedToNewsLatter = customer.IsSubscribedToNewsLatter;
+            //customerInDb.MemberShipTypeId = customer.MemberShipTypeId;
 
             _context.SaveChanges();
         }
