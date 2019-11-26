@@ -24,5 +24,6 @@ namespace Vidly.Dtos
 
         [Display(Name = "Membership Type")]
         public int MemberShipTypeId { get; set; }
+        public MemberShipTypeDto MemberShipType { get; set; }
     }
 }

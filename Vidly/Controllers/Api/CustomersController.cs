@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Data.Entity;
 using System.Web.Http;
 using Vidly.Dtos;
 using Vidly.Models;
@@ -21,7 +22,10 @@ namespace Vidly.Controllers.Api
         [HttpGet]
         public IHttpActionResult GetCustomers()
         {
-            var customer= _context.Customers.ToList().Select(Mapper.Map<Customer,CustomerDto>);
+            var customer= _context.Customers
+                .Include(c=>c.MemberShipType)
+                .ToList()
+                .Select(Mapper.Map<Customer,CustomerDto>);
             return Ok(customer);
         }
         //Get/api/customer/1
