@@ -23,8 +23,8 @@ namespace Vidly.Controllers
         // GET: Customers
         public ActionResult Index()
         {
-            var customer = _context.Customers.Include(c=>c.MemberShipType).ToList();
-            return View(customer);
+            //var customer = _context.Customers.Include(c=>c.MemberShipType).ToList();
+            return View();
         }
         public ActionResult Details(int Id)
         {

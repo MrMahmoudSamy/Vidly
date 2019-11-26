@@ -11,6 +11,8 @@ namespace Vidly
     {
         protected void Application_Start()
         {
+            ViewEngines.Engines.Clear();
+            ViewEngines.Engines.Add(new RazorViewEngine());
             Mapper.Initialize(c => c.AddProfile<MapperProfile>());
             GlobalConfiguration.Configure(WebApiConfig.Register);
             AreaRegistration.RegisterAllAreas();
