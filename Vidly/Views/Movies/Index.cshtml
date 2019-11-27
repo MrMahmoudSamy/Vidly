@@ -7,45 +7,38 @@
 
 <h2>Movies</h2>
 
-@Html.ActionLink("New Movies", "New", "Movies", new { @class = "btn btn-primary" })
+@Html.ActionLink("New Movies", "New", "Movies", new { @style = "margin:15px;", @class = "btn btn-primary" })
 
-@{ 
-    if(!Model.Any())
-    {
-        <p>We don't have any Movies yet.</p>
-    }
-    else
-    {
-        <table id="Movies" class="table table-hover">
-            <thead>
-                <tr>
-                    <th scope="row">Movie</th>
-                    <th scope="row">Genre</th>
-                    <th scope="row">Delete</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var movie in Model)
-                {
-                    <tr>
-                        <td>
-                            @Html.ActionLink(movie.Name, "Edit", "Movies", new { id = movie.Id }, new { @class = "navbar-brand" })
-                        </td>
-                        <td>@movie.Genre.GenreName</td>
-                        <td>
-                            <button data-movie-id="@movie.Id" class="btn btn-link js-delete">Delete</button>
-                        </td>
-                    </tr>
-                }
-            </tbody>
-        </table>
-    }
-}
+<table id="Movies" class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="row">Movie</th>
+            <th scope="row">Genre</th>
+            <th scope="row">Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        @*@foreach (var movie in Model)
+        {
+            <tr>
+                <td>
+                    @Html.ActionLink(movie.Name, "Edit", "Movies", new { id = movie.Id }, new { @class = "navbar-brand" })
+                </td>
+                <td>@movie.Genre.GenreName</td>
+                <td>
+                    <button data-movie-id="@movie.Id" class="btn btn-link js-delete">Delete</button>
+                </td>
+            </tr>
+        }*@
+    </tbody>
+</table>
+
+
 
 @section scripts{
     <script>
         $(document).ready(function () {
-            $("#Movies").DataTable({
+           var table= $("#Movies").DataTable({
                 ajax: {
                     url: "/api/movies",
                     dataSrc:""
@@ -59,7 +52,7 @@
                             }
                         },
                         {
-                            data:'name'
+                            data: 'genre.genreName'
                         },
                         {
                             data: 'id',
@@ -80,7 +73,8 @@
                             url: "/api/movies/" + button.attr("data-movie-id"),
                             method: "DELETE",
                             success: function () {
-                                button.parents("tr").remove();
+                                table.row(button.parents("tr")).remove().draw();
+                               
                             }
                         });
                     }

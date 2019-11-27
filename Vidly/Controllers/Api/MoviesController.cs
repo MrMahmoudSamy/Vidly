@@ -2,12 +2,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 using Vidly.Dtos;
 using Vidly.Models;
-
+using System.Data.Entity;
 namespace Vidly.Controllers.Api
 {
     public class MoviesController : ApiController
@@ -23,7 +21,10 @@ namespace Vidly.Controllers.Api
             IEnumerable<MovieDto> AllMovies = null;
             using (var context = new ApplicationDbContext())
             {
-                 AllMovies = context.Movie.ToList().Select(Mapper.Map<Movies, MovieDto>);
+                 AllMovies = context.Movie
+                    .Include(m=>m.Genre)
+                    .ToList()
+                    .Select(Mapper.Map<Movies, MovieDto>);
                 
             }
 
