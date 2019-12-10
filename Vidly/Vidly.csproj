@@ -299,6 +299,10 @@
     <Compile Include="Migrations\201912071304009_AddNewRentalTable.Designer.cs">
       <DependentUpon>201912071304009_AddNewRentalTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201912101513395_AddColumnToMoviesTable.cs" />
+    <Compile Include="Migrations\201912101513395_AddColumnToMoviesTable.Designer.cs">
+      <DependentUpon>201912101513395_AddColumnToMoviesTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -741,6 +745,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201912071304009_AddNewRentalTable.resx">
       <DependentUpon>201912071304009_AddNewRentalTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201912101513395_AddColumnToMoviesTable.resx">
+      <DependentUpon>201912101513395_AddColumnToMoviesTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
