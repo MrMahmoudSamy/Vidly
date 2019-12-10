@@ -40,7 +40,26 @@ namespace Vidly.Controllers.Api
             [HttpPost]
         public IHttpActionResult CreateNewRental(NewRentalDto NewRental)
         {
-            throw new NotImplementedException();
+           
+            
+            using (var context = new ApplicationDbContext())
+            {
+               var customer = context.Customers.SingleOrDefault(c => c.CustomerId == NewRental.CustomerId);
+               var movies = context.Movie.Where(m => NewRental.MovieIds.Contains(m.Id));
+                foreach (var movie in movies)
+                {
+                    var rental = new NewRental
+                    {
+                        Customer = customer,
+                        Movie = movie,
+                        DateRental = DateTime.Now
+
+                    };
+                    context.Rentals.Add(rental);
+                }
+                context.SaveChanges();
+            }
+            return Ok();
         }
     }
 }
