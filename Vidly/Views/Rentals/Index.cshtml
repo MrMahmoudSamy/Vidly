@@ -13,6 +13,8 @@
     <div class="form-group">
         <label>Movie</label>
         <input id="movie" type="text" value="" class="form-control" />
+        <ul id="Movies" class="list-group"></ul>
+                        
     </div>
     <button class="btn btn-primary">Submit</button>
 </form>
@@ -21,7 +23,9 @@
 {
   <script>
       $(document).ready(function () {
-          var vm = {};
+          var vm = {
+              MovieIds:[]
+          };
           var customers = new Bloodhound({
               datumTokenizer: Bloodhound.tokenizers.obj.whitespace('customerName'),
               queryTokenizer: Bloodhound.tokenizers.whitespace,
@@ -65,7 +69,9 @@
               display: 'name',
               source: Movies
           }).on("typeahead:select", function (e, movie) {
-              vm.movieid = movie.id;
+              $("#Movies").append("<li>" + movie.name + "</li>");
+              $("#movie").typeahead("val", "");
+              vm.MovieIds.push(movie.id);
           });
       });
 
