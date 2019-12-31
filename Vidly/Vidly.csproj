@@ -213,6 +213,7 @@
     <Compile Include="Dtos\MemberShipTypeDto.cs" />
     <Compile Include="Dtos\MovieDto.cs" />
     <Compile Include="Dtos\NewRentalDto.cs" />
+    <Compile Include="Dtos\StringHelper.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

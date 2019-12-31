@@ -8,7 +8,7 @@ using System.Data.Entity;
 using System.Web.Http;
 using Vidly.Dtos;
 using Vidly.Models;
-
+using System.Text;
 namespace Vidly.Controllers.Api
 {
     public class CustomersController : ApiController
@@ -20,10 +20,17 @@ namespace Vidly.Controllers.Api
         }
         //Get/api/customer
         [HttpGet]
-        public IHttpActionResult GetCustomers()
+        public IHttpActionResult GetCustomers(string query=null)
         {
-            var customer= _context.Customers
-                .Include(c=>c.MemberShipType)
+            var customerquery = _context.Customers
+                .Include(c => c.MemberShipType);
+
+            if(!StringHelper.IsNullOrWhiteSpace(query))
+            {
+                customerquery = customerquery.Where(c => c.CustomerName.Contains(query));
+            }
+
+            var customer = customerquery
                 .ToList()
                 .Select(Mapper.Map<Customer,CustomerDto>);
             return Ok(customer);
@@ -86,5 +93,7 @@ namespace Vidly.Controllers.Api
             _context.SaveChanges();
             return Ok();
         }
+
+        
     }
 }
