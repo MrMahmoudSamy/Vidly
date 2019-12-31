@@ -20,10 +20,11 @@ namespace Vidly.Controllers.Api
         [HttpGet]
         public IHttpActionResult GetMovies(string query=null)
         {
-            
-           
-               var Moviequery = _context.Movie
-                   .Include(m => m.Genre);
+
+
+            var Moviequery = _context.Movie
+                .Include(m => m.Genre)
+                .Where(m => m.NumberAvailble > 0);
 
                 if(!StringHelper.IsNullOrWhiteSpace(query))
                 {
